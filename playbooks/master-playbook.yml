@@ -1,7 +1,7 @@
 # all-playbooks.yml
 ---
   - import_playbook: yum-update.yml
-  - import_playbook: other-tasks.yml
+ # - import_playbook: other-tasks.yml
   - import_playbook: install-services.yml
   - import_playbook: selinux.yml
   - import_playbook: users-add.yml
