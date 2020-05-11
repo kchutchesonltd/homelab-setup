@@ -12,11 +12,7 @@ pipeline {
         sh '''PATH=$PATH:/usr/local/bin
 vagrant up
 '''
-        warnError(catchInterruptions: true, message: 'Build Error - Vagrant Box may be unstable') {
-          sh '''PATH=$PATH:/usr/local/bin
-vagrant destroy --force'''
-        }
-
+        warnError(message: 'Host Build Had unknown error')
       }
     }
 
