@@ -1,0 +1,9 @@
+# selinux.yml
+
+---
+  - hosts: all
+    become: true
+    tasks:
+      - name: Disable SELinux
+        selinux:
+         state: disabled

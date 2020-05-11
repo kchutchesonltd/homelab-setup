@@ -1,0 +1,19 @@
+# install-services.yml
+
+---
+  - hosts: all
+    become: true
+    tasks:
+      - name: Install docker 
+        yum: name=docker state=present
+      - name: Ensure docker starts
+        service: name=docker state=started enabled=yes
+      - name: Install java-1.8.0-openjdk
+        yum: name=java-1.8.0-openjdk state=present
+      - name: Install net-tools
+        yum: name=net-tools state=present
+      - name: Install git
+        yum: name=git state=present
+#      - name: Ensure jenkins starts
+#        service: name=jenkins state=started enabled=yes
+

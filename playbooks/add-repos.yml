@@ -1,0 +1,9 @@
+# add-repos.yml
+
+---
+- hosts: all
+  tasks:
+     - name: Add Jenkins Repository
+       shell: "yum-config-manager --add-repo=http://pkg.jenkins.io/redhat/jenkins.repo"
+       args:
+         creates: /etc/yum.repos.d/jenkins.repo
