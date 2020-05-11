@@ -11,15 +11,9 @@ pipeline {
       steps {
         sh '''PATH=$PATH:/usr/local/bin
 vagrant up
-
-if $? -ne 0
-then
-vagrant destroy --force
-fi 
 '''
-        catchError(buildResult: 'Failed', message: 'Build Failed') {
+        warnError(catchInterruptions: true, message: 'Build Error - Vagrant Box may be unstable') {
           sh '''PATH=$PATH:/usr/local/bin
-
 vagrant destroy --force'''
         }
 
@@ -30,14 +24,6 @@ vagrant destroy --force'''
       steps {
         sh '''PATH=$PATH:/usr/local/bin
 vagrant status'''
-      }
-    }
-
-    stage('Destroy') {
-      steps {
-        sh '''PATH=$PATH
-vagrant destroy --force
-'''
       }
     }
 
