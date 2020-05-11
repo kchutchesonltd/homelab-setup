@@ -15,8 +15,14 @@ vagrant up
 if $? -ne 0
 then
 vagrant destroy --force
-fi 
+fiÂ 
 '''
+        catchError(buildResult: 'Failed', message: 'Build Failed') {
+          sh '''PATH=$PATH:/usr/local/bin
+
+vagrant destroy --force'''
+        }
+
       }
     }
 
@@ -30,7 +36,7 @@ vagrant status'''
     stage('Destroy') {
       steps {
         sh '''PATH=$PATH
-vagrant destroy --force
+vagrant destroyÂ --force
 '''
       }
     }
