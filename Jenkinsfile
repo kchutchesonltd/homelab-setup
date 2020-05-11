@@ -12,7 +12,6 @@ pipeline {
         sh '''PATH=$PATH:/usr/local/bin
 vagrant up
 '''
-        warnError(message: 'Host Build Had unknown error')
       }
     }
 
