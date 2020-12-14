@@ -12,10 +12,8 @@ parameters:
 - name: app_name
   default: "terraform"
 
-
 trigger:
 - master
-
 
 jobs:
 - job: terraform_plan
