@@ -3,6 +3,13 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+parameters:
+- name: environment
+  values:
+  - sandpit
+  - dev
+  - prod
+
 trigger:
 - master
 
@@ -10,7 +17,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: echo Hello, world!
+- script: echo "Hello, world! on ${{paramters.environment}}"
   displayName: 'Run a one-line script'
 
 - script: |
