@@ -36,8 +36,8 @@ jobs:
     - script: 
       displayName: 'Run a one-line script'
       echo "Hello, world! on ${{parameters.environment}}"
-
-  - taek: RunScript2
+      
+  - task: RunScript2
     - script:
       displayName: 'Run a multi-line script'
       echo Add other tasks to build, test, and deploy your project.
