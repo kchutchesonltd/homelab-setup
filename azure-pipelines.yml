@@ -29,7 +29,7 @@ steps:
   displayName: 'Install a SSH key'
   inputs:
     knownHostEntry: 'blah'
-    sshPublicKey 'ssh blah'
+    sshPublicKey: 'ssh blah'
     sshKeySecureFile: terraformmodules
 
 
