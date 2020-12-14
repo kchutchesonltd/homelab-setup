@@ -32,13 +32,14 @@ jobs:
       sshPublicKey: 'ssh blah'
       sshKeySecureFile: terraformmodules
 
-  - script: 
-    displayName: 'Run a one-line script'
-    echo "Hello, world! on ${{parameters.environment}}"
-    
+  - task: RunScript
+    - script: 
+      displayName: 'Run a one-line script'
+      echo "Hello, world! on ${{parameters.environment}}"
 
-  - script:
-    displayName: 'Run a multi-line script'
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
+  - taek: RunScript2
+    - script:
+      displayName: 'Run a multi-line script'
+      echo Add other tasks to build, test, and deploy your project.
+      echo See https://aka.ms/yaml
     
