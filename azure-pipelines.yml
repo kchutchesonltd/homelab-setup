@@ -24,19 +24,18 @@ jobs:
   - group: "${{parameters.app_name}}_${{parameters.environment}}_secrets"
   - group: "${{parameters.app_name}}_${{parameters.environment}}_varables"
 
-steps:
-- task: InstallSSHKey
-  displayName: 'Install a SSH key'
-  inputs:
-    knownHostEntry: 'blah'
-    sshPublicKey: 'ssh blah'
-    sshKeySecureFile: terraformmodules
+  steps:
+  - task: InstallSSHKey
+    displayName: 'Install a SSH key'
+    inputs:
+      knownHostEntry: 'blah'
+      sshPublicKey: 'ssh blah'
+      sshKeySecureFile: terraformmodules
+      
+    - script: echo "Hello, world! on ${{parameters.environment}}"
+      displayName: 'Run a one-line script'
 
-
-- script: echo "Hello, world! on ${{parameters.environment}}"
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+    - script: |
+      echo Add other tasks to build, test, and deploy your project.
+      echo See https://aka.ms/yaml
+      displayName: 'Run a multi-line script'
