@@ -17,7 +17,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: echo "Hello, world! on ${{paramters.environment}}"
+- script: echo "Hello, world! on ${{parameters.environment}}"
   displayName: 'Run a one-line script'
 
 - script: |
