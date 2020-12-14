@@ -17,7 +17,7 @@ trigger:
 
 jobs:
 - job: terraform_plan
-  displayName: "terraform plan - ${{parammeters.environment}}"
+  displayName: "terraform plan - ${{parameters.environment}}"
   pool:
     vmImage: 'ubuntu-latest'
   variables:
