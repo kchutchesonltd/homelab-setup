@@ -9,14 +9,32 @@ parameters:
   - sandpit
   - dev
   - prod
+- name: app_name
+  default: "terraform"
+
 
 trigger:
 - master
 
-pool:
-  vmImage: 'ubuntu-latest'
+
+jobs:
+- job: terraform_plan
+  displayName: "terraform plan - ${{parammeters.environment}}"
+  pool:
+    vmImage: 'ubuntu-latest'
+  variables:
+  - group: "${{parameters.app_name}}_${{parameters.environment}}_secrets"
+  - group: "${{parameters.app_name}}_${{parameters.environment}}_varables"
 
 steps:
+- task: InstallSSHKey
+  displayName: 'Install a SSH key'
+  inputs:
+    knownHostEntry: 'blah'
+    sshPublicKey 'ssh blah'
+    sshKeySecureFile: terraformmodules
+
+
 - script: echo "Hello, world! on ${{parameters.environment}}"
   displayName: 'Run a one-line script'
 
